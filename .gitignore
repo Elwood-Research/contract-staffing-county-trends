@@ -1,0 +1,19 @@
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+*.xdv
+__pycache__/
+*.py[cod]
+.Python
+
+# But keep the manuscript PDF
+!05-manuscript/manuscript.pdf

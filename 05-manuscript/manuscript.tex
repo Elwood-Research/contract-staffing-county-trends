@@ -1,0 +1,196 @@
+\documentclass[12pt,letterpaper]{article}
+
+% Required Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{xcolor}
+\usepackage{multirow}
+
+% Page geometry
+\geometry{margin=1in}
+
+% Hyperref settings (load last)
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    citecolor=blue
+}
+
+\title{The Regional Divergence of Contract Staffing in U.S. Nursing Homes: A Longitudinal County-Level Analysis (2022--2024)}
+\author{Elwood Research Staff}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The COVID-19 pandemic precipitated a significant increase in the use of contract labor in U.S. nursing homes, but the long-term trajectory of this reliance remains poorly understood. This study analyzes Centers for Medicare \& Medicaid Services (CMS) Payroll-Based Journal (PBJ) data from 2022 through 2024 to examine county-level trends in contract staffing ratios. Our findings reveal a dramatic regional divergence in staffing recovery. While states like Florida and Georgia demonstrated a "crisis-recovery" model, with contract labor ratios dropping by over 70\%, other states like Vermont and North Dakota exhibited "structural dependency," with ratios exceeding 20\% and showing little signs of decline. County-level analysis identifies hotspots of persistent reliance that may be particularly vulnerable to proposed federal staffing mandates. These results suggest that the national "agency surge" has bifurcated into a temporary crisis response in some regions and a permanent structural fixture in others, necessitating geographically tailored policy interventions to ensure the stability of the long-term care workforce.
+\end{abstract}
+
+\newpage
+
+\section{Introduction}
+
+The nursing home industry has faced an unprecedented workforce crisis in the wake of the COVID-19 pandemic. A critical component of this crisis has been the dramatic increase in the utilization of contract staffing agencies to fill vacancies in direct care nursing positions. While the use of agency labor was historically a temporary solution for short-term staffing gaps, recent literature has characterized it as a widespread and potentially permanent shift in the nursing home labor market \citep{bowblis2024nursing}.
+
+Contract staffing, while providing necessary labor to meet minimum regulatory requirements, presents significant challenges for both facility stability and resident care quality. Agency labor is associated with substantially higher costs, which can strain facility finances and divert resources from permanent staff retention \citep{lord2025relationship}. Furthermore, the lack of continuity associated with transient agency staff has been linked to potential declines in the quality of care and resident outcomes \citep{falvey2023severe}.
+
+As the federal Public Health Emergency (PHE) concluded in early 2023, there were expectations that the reliance on agency labor might normalize. However, recent evidence suggests that the trajectory of recovery is not uniform across the United States. While some regions appear to be returning to pre-pandemic staffing models, others seem to be hardening their dependency on contract labor \citep{pradhan2025utilization}.
+
+This study aims to clarify these trends by performing a high-resolution, county-level analysis of contract staffing ratios from 2022 through 2024. By moving beyond national and state-level averages, we identify the specific geographic areas where contract labor has transitioned from a crisis response to a structural dependency. Our analysis provides critical context for current policy debates regarding federal staffing mandates and the financial sustainability of the long-term care sector.
+
+\section{Methods}
+
+\subsection{Data Source}
+
+We utilized daily, facility-level staffing records from the CMS Payroll-Based Journal (PBJ) system for the period between January 1, 2022, and December 31, 2024. The PBJ system captures auditable data on the hours worked by various categories of nursing staff, including Registered Nurses (RNs), Licensed Practical Nurses (LPNs), and Certified Nursing Assistants (CNAs), distinguishing between facility-employed and contract staff.
+
+\subsection{Variables and Human-Readable Labels}
+
+In accordance with reporting standards for Payroll-Based Journal research, we mapped raw PBJ variables to human-readable labels for all analyses and presentation. The primary outcome variable is the \textbf{Contract Labor Ratio}, defined as the proportion of total direct care nursing hours (RN, LPN, and CNA) provided by contract personnel. Specifically:
+\begin{itemize}
+    \item \textbf{Registered Nurse Hours}: Sum of RN hours per resident day.
+    \item \textbf{Licensed Practical Nurse Hours}: Sum of LPN hours per resident day.
+    \item \textbf{Certified Nursing Assistant Hours}: Sum of CNA hours per resident day.
+    \item \textbf{Daily Resident Census}: The reported count of residents in the facility on a given day.
+\end{itemize}
+
+\subsection{Data Cleaning and Aggregation}
+
+The aggregation from daily facility records to annual county-level means followed a rigorous three-step process:
+
+\begin{enumerate}
+    \item \textbf{Quarterly Cleaning}: Daily records were aggregated to calendar quarters. Facilities were flagged for exclusion if they met CMS "aberrant staffing" criteria, such as reporting zero total nursing hours or exceeding 12 total nursing hours per resident day.
+    \item \textbf{Annual Facility Level}: Quarterly averages were calculated for each facility. To ensure representativeness and reduce seasonal bias, facilities were required to have at least three valid quarters of data to be included in the annual facility average.
+    \item \textbf{County Aggregation}: Annual facility-level metrics were aggregated to the county level using arithmetic means. 
+\end{enumerate}
+
+\subsection{Outlier Screening}
+
+To ensure the robustness of the trend analysis, we applied a strict outlier removal protocol. Facility-year observations were excluded if their Contract Labor Ratio or Total Nursing Hours per Resident Day yielded a Z-score absolute value greater than 4 ($|z| > 4$). This threshold was selected to remove extreme data anomalies (e.g., reporting errors or extreme idiosyncratic events) while preserving the natural variance inherent in the national nursing home market. As summarized in the results, this led to the removal of 399 facility-year observations.
+
+\subsection{Statistical Analysis}
+
+We employed descriptive statistics to characterize the distribution of contract ratios by year and region. Longitudinal trends were assessed by calculating the absolute and percentage changes in contract ratios between the 2022 baseline and the 2024 end-of-period. We categorized states and counties into "recovery" or "dependency" models based on the direction and magnitude of these changes.
+
+\subsection{STROBE Flow Diagram}
+
+The study population flow and exclusion steps are documented in Figure \ref{fig:strobe}, following the Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) guidelines.
+
+\section{Results}
+
+\subsection{Sample Characteristics and Data Flow}
+
+Our initial dataset comprised over 16 million daily staffing observations from across the United States. Following the application of inclusion criteria and outlier screening, the final analytic sample consisted of 11,299 county-year observations. The exclusion process is detailed in the STROBE flow diagram (Figure \ref{fig:strobe}).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{../04-analysis/outputs/figures/strobe_flow.png}
+\caption{STROBE Flow Diagram illustrating the exclusion criteria and final analytic sample of nursing home facilities and counties.}
+\label{fig:strobe}
+\end{figure}
+
+\subsection{National and Regional Trends}
+
+The national landscape of contract staffing reliance is characterized by extreme geographic heterogeneity. Figure \ref{fig:state_ratios} shows the mean contract ratio by state in 2024. Table \ref{tab:state_ratios} provides the annual breakdown for all 50 states and the District of Columbia.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{../04-analysis/outputs/figures/figure1_state_ratios_2024.png}
+\caption{Mean Contract Labor Ratio by State in 2024. Darker regions indicate higher reliance on agency staffing.}
+\label{fig:state_ratios}
+\end{figure}
+
+\input{../04-analysis/outputs/tables/state_annual_contract_ratios.tex}
+
+Analysis of regional trends (Figure \ref{fig:region_trends}) reveals that the South and parts of the Midwest have seen the most consistent declines in contract labor reliance since 2022. In contrast, the Northeast and West regions exhibit more varied trajectories, with certain states maintaining high levels of dependency.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{../04-analysis/outputs/figures/figure5_region_trends.png}
+\caption{Annual trends in mean contract labor ratios by U.S. Census Region (2022--2024).}
+\label{fig:region_trends}
+\end{figure}
+
+\subsection{Divergence: Crisis-Recovery vs. Structural Dependency}
+
+A primary finding of this study is the significant divergence between states that have successfully reduced their reliance on agency labor and those where it has become structural. 
+
+States such as Florida and Georgia exemplify the "crisis-recovery" model. As shown in Figure \ref{fig:top_reductions}, Florida's mean contract ratio dropped from 9.4\% in 2022 to 2.1\% in 2024. Georgia saw a similar reduction from 9.6\% to 3.1\%. These dramatic shifts suggest that in these labor markets, the spike in agency use during the pandemic was a temporary phenomenon that has since been largely corrected.
+
+Conversely, states like Vermont and North Dakota exhibit "structural dependency." Vermont's contract ratio rose from 24.2\% in 2022 to 27.1\% in 2024, the highest in the nation. North Dakota maintained a high and stable ratio above 20\% throughout the study period.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{../04-analysis/outputs/figures/figure2_state_change.png}
+\caption{Percentage change in contract labor ratios by state from 2022 to 2024.}
+\label{fig:state_change}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{../04-analysis/outputs/figures/figure4_top_reduction_states.png}
+\caption{States with the greatest absolute reductions in contract staffing ratios (2022--2024).}
+\label{fig:top_reductions}
+\end{figure}
+
+\subsection{County-Level Hotspots}
+
+County-level analysis further highlights the hyper-local nature of these trends. Figure \ref{fig:scatter} demonstrates the relationship between 2022 and 2024 contract ratios at the county level, illustrating both the general downward trend and the significant number of "outlier" counties with persistent or increasing dependency.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{../04-analysis/outputs/figures/figure3_scatter_2022_2024.png}
+\caption{County-level scatter plot comparing 2022 contract ratios with 2024 ratios. The diagonal line represents no change.}
+\label{fig:scatter}
+\end{figure}
+
+Tables \ref{tab:improvements} and \ref{tab:declines} list the top 20 counties with the greatest improvements and declines (increases in dependency), respectively. The counties with the greatest increases are predominantly located in rural regions of the Northeast and Midwest, reinforcing the findings of previous studies regarding rural labor market vulnerabilities \citep{orewa2025financial, quigley2021literature}.
+
+\input{../04-analysis/outputs/tables/top_20_counties_improvement.tex}
+
+\input{../04-analysis/outputs/tables/top_20_counties_decline.tex}
+
+\section{Discussion}
+
+\subsection{Synthesis of Findings}
+
+The results of this longitudinal analysis challenge the notion of a universal post-pandemic "recovery" in nursing home staffing. While national averages might suggest a moderate decline in agency reliance, this masks a fundamental bifurcation in the industry. We identified two distinct models: a "crisis-recovery" model prevalent in the South and parts of the Midwest, and a "structural dependency" model concentrated in the Northeast and rural Mountain states.
+
+The dramatic recovery observed in states like Florida and Georgia (dropping from ~9.5\% to <3.5\%) provides the first large-scale empirical evidence that the "agency surge" is reversible. This recovery likely reflects a combination of improved local labor market conditions, facility-level management initiatives, and potentially, state-specific policy interventions or regulatory changes that disincentivized high-cost agency labor. Future research should investigate the specific drivers of success in these "recovery" states.
+
+In contrast, the persistence of ratios above 20\% in Vermont and North Dakota confirms the hypothesis that contract labor has become a structural fixture for a significant segment of the industry \citep{pradhan2025utilization}. Facilities in these high-dependency regions are often rural and face unique recruitment and retention hurdles that may force a permanent reliance on expensive agency staff to meet even baseline safety requirements \citep{orewa2025financial}.
+
+\subsection{Policy Implications}
+
+These geographic disparities have profound implications for national nursing home policy, particularly regarding the implementation of federal staffing mandates. A "one-size-fits-all" mandate may be achievable and even beneficial in states like Florida and Georgia, where the workforce has stabilized. However, the same mandate could prove financially catastrophic for facilities in Vermont or North Dakota, where nearly one-third of nursing hours are sourced through high-premium agencies.
+
+The financial burden of persistent agency reliance creates a "quality trap." Facilities in high-dependency regions must dedicate a disproportionate share of their budget to temporary labor, leaving fewer resources for permanent staff wages, benefits, and capital improvements \citep{lord2025relationship}. This cycle of instability poses a long-term risk to resident care continuity and facility viability.
+
+\subsection{Limitations}
+
+While this study utilizes the most current and comprehensive staffing data available, several limitations should be noted. First, PBJ data records the quantity of contract labor but does not provide the specific costs or premiums paid to agencies. Second, our analysis is descriptive and does not definitively establish the causal factors driving the observed regional differences. Third, the county-level aggregation, while more granular than state-level data, may still mask facility-level variation within counties.
+
+\subsection{Conclusions}
+
+The U.S. nursing home staffing market is undergoing a period of significant regional divergence. The transition from crisis to recovery is well underway in many parts of the country, yet a hardening dependency on contract labor persists in others. Policy makers must account for these geographic realities when designing staffing regulations and financial support programs. Ensuring a stable and sustainable long-term care workforce will require move than broad mandates; it will require targeted efforts to address the structural labor market failures that continue to plague high-dependency regions.
+
+\newpage
+
+\bibliographystyle{unsrtnat}
+\bibliography{../01-literature/references}
+
+\end{document}
